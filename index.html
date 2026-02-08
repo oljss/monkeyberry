@@ -6,11 +6,96 @@
     <title>Monkey Berry</title>
     <style>
         body { margin: 0; overflow: hidden; }
+        #info-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: monospace;
+            border-radius: 5px;
+            display: none; /* Hidden by default */
+        }
+        @font-face {
+            font-family: 'Super Popstar';
+            src: url('/fonts/super_popstar/Super Popstar.ttf') format('truetype'); /* Adjust path and format as needed */
+            font-weight: normal;
+            font-style: normal;
+        }
+        #title-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/images/gif.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            font-family: 'Arial', sans-serif;
+        }
+        #model-container {
+            width: 50%;
+            height: 100%;
+        }
+        #title-container {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #title-container h1 {
+            font-family: 'Super Popstar', cursive, sans-serif;
+            font-size: 8em;
+            color: rgba(247, 3, 234, 0.815);;
+            margin-bottom: 20px;
+        }
+        #startButton {
+            font-size: 2em;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 0;
+            border: none;
+            background-color: black;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        canvas {
+            display: none; /* Game canvas hidden by default */
+        }
+        #model-container canvas {
+             display: block; /* Title screen canvas visible */
+        }
     </style>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
+    <div id="title-screen">
+        <div id="model-container"></div>
+        <div id="title-container">
+            <h1>Monkeyberry</h1>
+            <button id="startButton">Start</button>
+        </div>
+    </div>
+    <div id="info-box">
+        Velocity: <span id="velocity-info"></span><br>
+        Position: <span id="position-info"></span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cannon@0.6.2/build/cannon.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/utils/BufferGeometryUtils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="game.js"></script>
+    <script src="title-screen.js"></script>
+</body>
+</html>></script>
+</body>
+</html></script>
 </body>
 </html>
